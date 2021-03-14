@@ -4,15 +4,15 @@ module.exports = (sequelize, DataTypes) => {
     let BudgetItem = sequelize.define('BudgetItem', {
         name: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         amount: {
             type: DataTypes.NUMBER,
-            allowNull: false
+            allowNull: true
         },
         income: {
             type:DataTypes.BOOLEAN,
-            allowNull: false
+            allowNull: true
         },
         category: {
             type: DataTypes.STRING,

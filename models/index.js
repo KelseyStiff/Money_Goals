@@ -16,6 +16,9 @@ if (config.use_env_variable) {
 
 let budgetModel = require('./item')(sequelize, DataTypes)
 db[budgetModel.name] = budgetModel
+let spendModel = require('./spend')(sequelize, DataTypes)
+db[spendModel.name] = spendModel
+
 
 db.sequelize = sequelize
 db.Sequelize = Sequelize

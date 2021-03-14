@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
 
     let SpendGoal = sequelize.define('SpendGoal', {
         month: {
-            type: DataTypes.STRING,
+            type: DataTypes.DATE,
             allowNull: false
         },
         amount: {
