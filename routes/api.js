@@ -59,6 +59,31 @@ router.delete('/spend_goals\':id', function(req, res, next){
         }).catch( err => next(err) )
 })
 
+let SavingGoal = db.SavingGoal
+
+router.get('/saving_goals', function(req, res, next){
+    SavingGoal.findAll({order: ['amount']}).then( savingGoals => {
+        return res.json(savingGoals)
+    }).catch( err => next(err) )
+})
+
+//add data
+router.post('/saving_goals', function(req, res, next) {
+    console.log(req.body)
+    SavingGoal.create(req.body).then( () => {
+        res.status(201).send('ok')
+    }).catch( err => next(err) )
+})
+
+//remove data
+router.delete('/saving_goals/:id', function(req, res, next){
+    SavingGoal.destroy({where: {id: req.params.id}})
+        .then( rowsModified => {
+            return res.send('ok')
+        }).catch( err => next(err) )
+})
+
+
 
 //export the router
 module.exports = router
